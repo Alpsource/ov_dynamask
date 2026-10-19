@@ -7,7 +7,7 @@
 SEQUENCE="${1:-urban39}"
 CONDITION="${2:-unmasked}"
 
-WORKSPACE="/media/neurolab/60a72ba2-3a9d-47d0-88e3-852b0f67f283"
+WORKSPACE="${WORKSPACE:-/media/neurolab/60a72ba2-3a9d-47d0-88e3-852b0f67f283}"
 OPENVINS_WS="${WORKSPACE}/openvins_ws"
 MODEL_PATH="${OPENVINS_WS}/models/yolo26s-seg.pt"
 CONFIG_BASE="${OPENVINS_WS}/install/ov_msckf/share/ov_msckf/config/kaist_urban"

@@ -19,7 +19,7 @@ setup(
     zip_safe=True,
     maintainer='Alp Demirel',
     maintainer_email='',
-    description='SoftGate-VIO: GT semantic masker, stereo DOV tracker, and path recorder for dynamic-object-aware VIO evaluation.',
+    description='ov_dynamask support package: ground-truth semantic masker, stereo ORB dynamic-object tracker, and trajectory path recorder.',
     license='MIT',
     tests_require=['pytest'],
     entry_points={

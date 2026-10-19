@@ -19,7 +19,7 @@
 #   ./debug_run.sh parking_lot high yolo false   # YOLO masking only
 # =============================================================================
 
-WORKSPACE="/media/neurolab/60a72ba2-3a9d-47d0-88e3-852b0f67f283"   # ← set this to your data root
+WORKSPACE="${WORKSPACE:-/media/neurolab/60a72ba2-3a9d-47d0-88e3-852b0f67f283}"   # ← set this to your data root
 OPENVINS_WS="${WORKSPACE}/openvins_ws"
 VIODE_DATASET="${WORKSPACE}/Downloads_Ext/VIODE_Dataset"
 OTP_SCRIPT="${VIODE_DATASET}/odom_to_path.py"

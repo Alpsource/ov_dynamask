@@ -19,7 +19,7 @@ setup(
     zip_safe=True,
     maintainer='Alp Demirel',
     maintainer_email='',
-    description='YOLOv11-based dynamic object masker with ego-motion-compensated flow classifier for OpenVINS.',
+    description='Instance-segmentation dynamic-object masker with an ego-motion-compensated optical-flow test for OpenVINS.',
     license='MIT',
     tests_require=['pytest'],
     entry_points={

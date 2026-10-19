@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# run_zedx_live.sh — SoftGate-VIO live pipeline for ZED X stereo camera
+# run_zedx_live.sh - ov_dynamask live pipeline for ZED X stereo camera
 #
 # Usage:
 #   ./scripts/run_zedx_live.sh [--rviz] [--timing] [--no-mask]
@@ -347,7 +347,7 @@ PIDS+=($!)
 
 echo ""
 echo "┌──────────────────────────────────────────────────────────┐"
-echo "│  SoftGate-VIO running — press Ctrl+C to stop             │"
+echo "│  ov_dynamask running - press Ctrl+C to stop              │"
 echo "│                                                           │"
 printf  "│  Config:    %-46s│\n" "$(basename "$CONFIG_PATH")"
 printf  "│  Masking:   %-46s│\n" "$(if $USE_MASK; then echo "YOLO ($MODEL_PATH | conf=$CONF_THRESHOLD)"; else echo "disabled (force_empty)"; fi)"

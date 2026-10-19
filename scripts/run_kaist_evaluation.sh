@@ -30,7 +30,7 @@
 
 set -euo pipefail
 
-WORKSPACE="/media/neurolab/60a72ba2-3a9d-47d0-88e3-852b0f67f283"
+WORKSPACE="${WORKSPACE:-/media/neurolab/60a72ba2-3a9d-47d0-88e3-852b0f67f283}"
 OPENVINS_WS="${WORKSPACE}/openvins_ws"
 KAIST_DIR="${WORKSPACE}/Downloads_Ext/KAIST Urban"
 RESULTS_BASE="${WORKSPACE}/sim_results"
