@@ -16,7 +16,7 @@
 # to keep identical 4-topic sync overhead in both conditions.
 # =============================================================================
 
-WORKSPACE="/path/to/your/workspace"   # ← set this to your data root
+WORKSPACE="${WORKSPACE:-/path/to/your/workspace}"   # ← set this to your data root
 RESULTS_BASE="${WORKSPACE}/sim_results"
 OPENVINS_WS="${WORKSPACE}/openvins_ws"
 VIODE_DATASET="${WORKSPACE}/Downloads_Ext/VIODE_Dataset"

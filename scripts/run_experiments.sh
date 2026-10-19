@@ -40,7 +40,7 @@
 # ── EDIT THESE FOR YOUR MACHINE ───────────
 # ==========================================
 
-WORKSPACE="/path/to/your/workspace"   # ← set this to your data root
+WORKSPACE="${WORKSPACE:-/path/to/your/workspace}"   # ← set this to your data root
 RESULTS_BASE="${WORKSPACE}/sim_results"
 OPENVINS_WS="${WORKSPACE}/openvins_ws"
 
