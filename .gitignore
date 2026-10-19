@@ -2,6 +2,12 @@
 *.md
 !README.md
 
+# Model weights are not redistributed (see README)
+models/
+*.pt
+*.onnx
+*.engine
+
 # ROS2 colcon build artifacts
 build/
 install/
