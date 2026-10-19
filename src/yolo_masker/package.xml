@@ -4,10 +4,10 @@
   <name>yolo_masker</name>
   <version>1.0.0</version>
   <description>
-    YOLOv11-based dynamic object masker with ego-motion-compensated optical flow classifier.
-    Publishes per-camera VIO masks (dynamic objects only) and object label maps (all detections)
-    for use with OpenVINS and the DOV stereo object tracker.
-    Requires: pip install ultralytics
+    Instance-segmentation dynamic-object masker with an ego-motion-compensated
+    optical-flow test. Publishes per-camera VIO masks (dynamic objects only) and
+    object label maps (all detections) for OpenVINS and the stereo object tracker.
+    Requires the ultralytics package; segmentation weights are not redistributed.
   </description>
   <maintainer email="demirel.alp@gmail.com">Alp Demirel</maintainer>
   <license>MIT</license>

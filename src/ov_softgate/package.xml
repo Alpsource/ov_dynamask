@@ -4,10 +4,10 @@
   <name>ov_softgate</name>
   <version>1.0.0</version>
   <description>
-    SoftGate-VIO support package: GT semantic masker (VIODE segmentation colors),
-    stereo ORB dynamic object tracker (hybrid_speed_estimator), and path recorder
-    for VIO / ground-truth / DOV trajectory CSV export.
-    Designed to work alongside the OpenVINS fork at Alpsource/open_vins.
+    ov_dynamask support package: ground-truth semantic masker (VIODE segmentation
+    colours), stereo ORB dynamic-object tracker, and path recorder for estimate,
+    ground-truth and tracker trajectory CSV export. Works alongside the OpenVINS
+    fork at Alpsource/open_vins.
   </description>
   <maintainer email="demirel.alp@gmail.com">Alp Demirel</maintainer>
   <license>MIT</license>
