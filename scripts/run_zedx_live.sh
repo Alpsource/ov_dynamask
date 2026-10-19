@@ -33,7 +33,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WS_DIR="$(dirname "$SCRIPT_DIR")"
 
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-export CYCLONEDDS_URI=file:///home/neurolab/alp/SoftGate-VIO/cyclonedds.xml
+export CYCLONEDDS_URI="file://$WS_DIR/cyclonedds.xml"
 
 # ── Source workspace ────────────────────────────────────────────────────────
 source "$WS_DIR/install/setup.bash"
