@@ -11,9 +11,6 @@ waits for fresh inference. The estimator is OpenVINS, unmodified in its update
 path except for the mask input and the residual-weighting stage used in the
 ablation.
 
-> **Paper:** under review. Archival DOI: `XX.XXXX/XXXXXX` (to be filled on acceptance).
-> **Data and code record:** DOI `XX.XXXX/XXXXXX`, released separately from this repository.
-
 ---
 
 ## What is in here
@@ -21,8 +18,13 @@ ablation.
 This repository is the ROS 2 workspace: the two nodes that produce and record
 masks, the experiment runners, and the manifest that pulls the OpenVINS fork.
 It is the software side only. The recorded runs, the analysis pipeline and the
-reference outputs that regenerate every number, table and figure in the article
-live in the separate archived data record named above.
+reference outputs are deposited separately as `ov_dynamask_data_and_code`.
+That record recomputes the article's reported scalars, tables and figures from the
+recorded runs and checks them against stored reference outputs; its own README
+sets out where the recomputation and the published tables differ, including the
+table cells carried through from the article and the comparison values read from
+the cited literature. It does not regenerate the historical executions or the
+raw timing traces.
 
 ```
 ov_dynamask/
@@ -74,13 +76,25 @@ Segmentation weights are not redistributed. The recorded runs used Ultralytics
 on the Jetson. Place your own weights in `models/`; the launch file takes the
 `.engine` file when present and falls back to the `.pt`.
 
-## Masker configuration used for the recorded runs
+## Masker parameters
+
+These are the launch-file defaults, not the settings of any particular reported
+experiment:
 
 ```
-conf 0.25   dilation 13 px   max mask fraction 0.80
-CLAHE on, clip 2.0           flow test on, threshold 2.0 px
-force_empty true
+confidence_threshold 0.25   dilation_kernel 13   max_mask_fraction 0.80
+use_flow_classifier true    force_empty false
 ```
+
+`force_empty true` makes the node publish empty masks; that is how the unmasked
+control arm is run, not a masking setting.
+
+The reported experiments do not share one configuration. Confidence threshold,
+dilation kernel, maximum mask fraction, flow threshold and the estimator
+configuration each differ between the VIODE and KAIST arms, and within VIODE the
+dense-city recordings use their own values. The authoritative record of what
+each batch ran is the `params.txt` beside that batch in the data record; the
+runner scripts in `scripts/` set the same values at launch time.
 
 ## Running
 
@@ -104,10 +118,11 @@ comparisons favour masking after Holm correction, with conditional median
 absolute trajectory error changes of -59.5, -36.3 and -26.2 percent. One is
 robust to every tested sample restriction, two are sample-sensitive, and no
 parking-lot comparison reaches significance. Divergent runs total 10 of 240 in
-each arm. On a Jetson Orin NX, estimator updates took 46.1 to 61.4 ms on
-average with a 95th percentile of 81.2 to 138.2 ms, while segmentation ran at a
-fraction of the camera rate. Full conditions, statistics and the timing
-configuration are in the article.
+each arm. On a Jetson Orin NX, under a timing configuration separate from the
+accuracy runs, estimator updates took 46.1 to 61.4 ms on average with a 95th
+percentile of 81.2 to 138.2 ms, while segmentation ran at a fraction of the
+camera rate. Full conditions, statistics and the timing configuration are in
+the article.
 
 ## Licence
 
@@ -117,21 +132,3 @@ estimator and do not link against it.
 
 The OpenVINS fork pulled by `.repos` is a separate repository and remains under
 the GNU GPL v3 of upstream OpenVINS (https://github.com/rpng/open_vins).
-
-## Citing
-
-If you use this software, please cite the article and the data record:
-
-```bibtex
-@article{demirel_dynamask,
-  author  = {Demirel, Alp and Uyan{\i}k, {\.I}smail},
-  title   = {Asynchronous Semantic Masking in Filter-Based Stereo-Inertial
-             Odometry: A Repeated-Run Study of Accuracy, Divergence, and
-             Embedded Timing},
-  year    = {2026},
-  note    = {Under review}
-}
-```
-
-Please also cite OpenVINS, and the VIODE and KAIST Complex Urban datasets if
-you reproduce the evaluations.
